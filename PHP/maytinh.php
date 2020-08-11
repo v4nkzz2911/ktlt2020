@@ -24,28 +24,28 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td>
-                        <input type="checkbox" name="calc[]" value="1" class="form-control">
+                        <input type="checkbox" name="calc[]" value="+" class="form-control">
                         <label for="plus">Cộng</label>
                     </td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
                     <td>
-                        <input type="checkbox" name="calc[]" value="1" class="form-control">
+                        <input type="checkbox" name="calc[]" value="-" class="form-control">
                         <label for="minus">Trừ</label>
                     </td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
                     <td>
-                        <input type="checkbox" name="calc[]" value="1" class="form-control">
+                        <input type="checkbox" name="calc[]" value="*" class="form-control">
                         <label for="multiply">Nhân</label>
                     </td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
                     <td>
-                        <input type="checkbox" name="calc[]" value="1" class="form-control">
+                        <input type="checkbox" name="calc[]" value="/" class="form-control">
                         <label for="divine">Chia</label>
                     </td>
                 </tr>
@@ -72,50 +72,50 @@
                 $calc=$_POST["calc"];
 
                 echo "<table width=200>";
-                if (!empty($calc[0]))
-                    {
-                        echo "<tr>";
-                            echo "<td>";
-                                echo "Cộng:";
-                            echo "<td/>";
-                            echo "<td>";
-                                echo $a+$b;
-                            echo "<td/>";
-                        echo "<tr/>";
+                for($i=0;$i<count($calc);$i++){
+                    switch ($calc[$i]){
+                        case "+":
+                            echo "<tr>";
+                                echo "<td>";
+                                    echo "Cộng:";
+                                echo "<td/>";
+                                echo "<td>";
+                                    echo $a+$b;
+                                echo "<td/>";
+                            echo "<tr/>";
+                        break;
+                        case "-":
+                            echo "<tr>";
+                                echo "<td>";
+                                    echo "Trừ:";
+                                echo "<td/>";
+                                echo "<td>";
+                                    echo $a-$b;
+                                echo "<td/>";
+                            echo "<tr/>";
+                        break;
+                        case "*":
+                            echo "<tr>";
+                                echo "<td>";
+                                    echo "Nhân:";
+                                echo "<td/>";
+                                echo "<td>";
+                                    echo $a*$b;
+                                echo "<td/>";
+                            echo "<tr/>";
+                        break;
+                        case "/":
+                            echo "<tr>";
+                                echo "<td>";
+                                    echo "Chia:";
+                                echo "<td/>";
+                                echo "<td>";
+                                    echo $a/$b;
+                                echo "<td/>";
+                            echo "<tr/>";
+                        break;
                     }
-                if (!empty($calc[1]))    
-                    {
-                        echo "<tr>";
-                            echo "<td>";
-                                echo "Trừ:";
-                            echo "<td/>";
-                            echo "<td>";
-                                echo $a-$b;
-                            echo "<td/>";
-                        echo "<tr/>";
-                    }
-                if (!empty($calc[2]))
-                    {
-                        echo "<tr>";
-                            echo "<td>";
-                                echo "Nhân:";
-                            echo "<td/>";
-                            echo "<td>";
-                                echo $a*$b;
-                            echo "<td/>";
-                        echo "<tr/>";
-                    }
-                if (!empty($calc[3]))
-                    {
-                        echo "<tr>";
-                            echo "<td>";
-                                echo "Chia:";
-                            echo "<td/>";
-                            echo "<td>";
-                                echo $a/$b;
-                            echo "<td/>";
-                        echo "<tr/>";
-                    }
+                }
                 echo "<table/>";
             }
         ?>
